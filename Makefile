@@ -19,7 +19,7 @@ OBJS = $(SRCS:.c=.o)
 OBJS := $(OBJS:.s=.o)
 
 # Linker Script
-LDSCRIPT = STM32F411RE_FLASH.ld
+LDSCRIPT = STM32F411RETX_FLASH.ld
 
 # Compiler Flags
 MCU_FLAGS = -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard

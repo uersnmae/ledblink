@@ -12,10 +12,10 @@ int main(void) {
 
 	while (1) {
 		GPIOA->BSRR = (1 << 5);
-		delay(500000);
+		delay(5000000);
 
 		GPIOA->BSRR = (1 << (5 + 16));
-		delay(500000);
+		delay(50000000);
 	}
 	return 0;
 }

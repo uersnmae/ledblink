@@ -54,7 +54,7 @@ compile:
 	@echo "compile_commands.json has been generated."
 
 del_compile:
-	rm -rf compile_commands
+	rm -rf compile_commands.json
 
 clean:
 	rm -f $(OBJS) $(TARGET).elf $(TARGET).bin $(TARGET).map

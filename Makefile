@@ -23,7 +23,7 @@ LDSCRIPT = STM32F411RE_FLASH.ld
 
 # Compiler Flags
 MCU_FLAGS = -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard
-CFLAGS = $(MCU_FLAGS) -O2 -g -Wall -I.
+CFLAGS = $(MCU_FLAGS) -O2 -g -Wall -Iinclude
 CFLAGS += -fdata-sections -ffunction-sections
 
 # Linker Flags

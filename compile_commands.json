@@ -1,4 +1,0 @@
-[
-{"directory": "/home/dong-hki/mygit/ledblink", "command": "arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -O2 -g -Wall -I. -fdata-sections -ffunction-sections -Iinclude -c -o main.o main.c", "file": "main.c"},
-{"directory": "/home/dong-hki/mygit/ledblink", "command": "arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -O2 -g -Wall -I. -fdata-sections -ffunction-sections -Iinclude -c -o system_stm32f4xx.o system_stm32f4xx.c", "file": "system_stm32f4xx.c"}
-]

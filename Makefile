@@ -9,6 +9,8 @@ AS = arm-none-eabi-as
 LD = arm-none-eabi-ld
 OC = arm-none-eabi-objcopy
 
+VPATH = src
+
 SRCS = main.c \
 	   system_stm32f4xx.c \
 	   startup_stm32f411xe.s

@@ -7,7 +7,7 @@ TARGET = led_blink
 CC = arm-none-eabi-gcc
 AS = arm-none-eabi-as
 LD = arm-none-eabi-ld
-OC = arm-none-eabo-objcopy
+OC = arm-none-eabi-objcopy
 
 SRCS = main.c \
 	   system_stm32f4xx.c \
@@ -28,9 +28,9 @@ CFLAGS += -fdata-sections -ffunction-sections
 LDFLAGS = $(MCU_FLAGS) -Wl,-Map=$(TARGET).map,--cref -Wl,--gc-sections
 LDFLAGS += -T $(LDSCRIPT)
 
-.PHONTY: all clean flash
+.PHONY: all compile del_compile clean flash
 
-all: $(Target).elf
+all: $(TARGET).elf
 
 $(TARGET).elf: $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $^
@@ -42,6 +42,17 @@ $(TARGET).elf: $(OBJS)
 
 %.o: %.s
 	$(CC) $(CFLAGS) -c -o $@ $<
+
+compile:
+	@echo "[" > compile_commands.json
+	@$(foreach src, $(filter %.c, $(SRCS)), \
+	    echo "{\"directory\": \"$(CURDIR)\", \"command\": \"$(CC) $(CFLAGS) -Iinclude -c -o $(src:.c=.o) $(src)\", \"file\": \"$(src)\"}," >> compile_commands.json;)
+	@sed -i '$$s/,$$//' compile_commands.json
+	@echo "]" >> compile_commands.json
+	@echo "compile_commands.json has been generated."
+
+del_compile:
+	rm -rf compile_commands
 
 clean:
 	rm -f $(OBJS) $(TARGET).elf $(TARGET).bin $(TARGET).map

@@ -11,7 +11,7 @@ int main(void) {
 	GPIOA->MODER &= ~(0b11 << 10); /* clear bits */
 	GPIOA->MODER |=  (0b01 << 10); /* set output mode */
 
-	GPIOC->MODER &= ~(0b11 << 26); /* clear bits, set input modt */
+	GPIOC->MODER &= ~(0b11 << 26); /* clear bits, set input mode */
 
 	while (1) {
 		if ((GPIOC->IDR & (1 << 13)) == 0) {
